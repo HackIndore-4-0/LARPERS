@@ -1,0 +1,27 @@
+{
+  "name": "sgsits-campus-access-next",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @campus-access/api --filter @campus-access/web dev",
+    "build": "pnpm --filter @campus-access/shared build && pnpm --filter @campus-access/api build && pnpm --filter @campus-access/web build",
+    "typecheck": "pnpm --filter @campus-access/shared build && pnpm --filter @campus-access/api typecheck && pnpm --filter @campus-access/web typecheck",
+    "test:unit": "pnpm -r test:unit",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "qa": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.55.1",
+    "@types/node": "^24.5.2",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.1",
+    "vitest": "^3.2.4"
+  }
+}
